@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import { ConnectionBackend, RequestOptions, Request, RequestOptionsArgs, Response, Http, Headers} from "@angular/http";
 import {Observable} from "rxjs/Rx";
 import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/catch'
 import {environment} from "../../environments/environment";
 
 @Injectable()
@@ -22,9 +23,14 @@ export class HttpService extends Http {
     post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
         body = this.updateBody(body);
         url = this.updateUrl(url);
-        return super.post(url, body, this.getRequestOptionArgs(options)).map((res)=>{
-                console.log(res)
-            return res});
+        return super.post(url, body, this.getRequestOptionArgs(options))
+            .map((res)=>{
+                return res;
+            })
+            .catch((err) => { 
+                err._body = err.json();
+                return Observable.throw(err);
+            });
     }
 
     put(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {

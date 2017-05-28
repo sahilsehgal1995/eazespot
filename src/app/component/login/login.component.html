@@ -1,3 +1,13 @@
 <p>
-  login works!
+  login Page
+
+  <input type="text" name="" [(ngModel)]="email" placeholder="email">
+  <br>
+  <input type="password" [(ngModel)]="password" name="" placeholder="Password">
+  <br>
+  <select [(ngModel)]="company">
+	  <option *ngFor="let c of companyList;" value={{c.company}}>{{c.company_name}}</option>
+	</select>
+  <button type="button" (click)="userLogin()">Login</button>
+  <br>
 </p>

@@ -7,6 +7,8 @@ import { InterceptedHttp } from "./service/interceptor.service";
 
 import { routes } from './app.router';
 
+import { AuthFactoryService } from './service/auth-factory.service';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 
@@ -26,7 +28,8 @@ import { LoginComponent } from './component/login/login.component';
         provide: Http,
         useFactory: InterceptedHttp,
         deps: [XHRBackend, RequestOptions]
-    }
+    },
+    AuthFactoryService
   ],
   bootstrap: [AppComponent]
 })
