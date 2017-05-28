@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {HttpModule, Http, XHRBackend, RequestOptions} from '@angular/http';
+
+import { InterceptedHttp } from "./service/interceptor.service";
 
 import { routes } from './app.router';
 
@@ -19,7 +21,13 @@ import { LoginComponent } from './component/login/login.component';
     HttpModule,
     routes
   ],
-  providers: [],
+  providers: [
+    {
+        provide: Http,
+        useFactory: InterceptedHttp,
+        deps: [XHRBackend, RequestOptions]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
