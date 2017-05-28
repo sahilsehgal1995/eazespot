@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthFactoryService } from '../../service/auth-factory.service';
+import { User } from "../../interface/user";
+
 
 @Component({
   selector: 'app-login',
@@ -25,7 +27,7 @@ export class LoginComponent implements OnInit {
   userLogin () {
   	console.log("user login", this.email, this.password, this.company, this.grant_type);
   	this.authFactory.login(this.email, this.password, this.grant_type, this.company)
-  		.subscribe((res: any) => {
+  		.subscribe((res: User) => {
   			console.log("login user", res);
   		}, (err: any) => {
   			console.log("login error", err);
