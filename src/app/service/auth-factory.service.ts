@@ -21,207 +21,111 @@ export class AuthFactoryService {
 
     setToken(token: string): void{
 	    this.localStorage.store('token', token);
-	    return ;
 	}
 
     getToken(): string {
         return this.localStorage.retrieve('token');
     }
 
-    // setUserID(id) {
-    //     if (isLocalStorageSupported()){
-    //         $localStorage.userId = id;
-    //     }
-    //     else {
-    //         $cookies.put('userId', id);
-    //     }
-    //     return ;
-    // }
+    setUserID(id: number): void {
+        this.localStorage.store('userId', id);
+        return ;
+    }
 
-    // getUserID () {
-    //     if (isLocalStorageSupported()){
-    //         return $localStorage.userId;
-    //     }
-    //     else {
-    //         return $cookies.get('userId');
-    //     }
-    // }
+    getUserID (): number {
+        return this.localStorage.retrieve('userId');
+    }
 
-    // setUsername (Username) {
-    //     if (isLocalStorageSupported()){
-    //         $localStorage.Username = Username;
-    //     }
-    //     else {
-    //         $cookies.put('Username', Username);
-    //     }
-    //     return ;
-    // }
+    setUsername (Username: string): void {
+        this.localStorage.store('Username', Username);
+        return ;
+    }
 
-    // getUsername () {
-    //     if (isLocalStorageSupported()){
-    //         return ($localStorage.Username);
-    //     }
-    //     else {
-    //         return $cookies.get('Username');
-    //     }
-    // }
+    getUsername (): string {
+        return this.localStorage.retrieve('userId');
+    }
 
-    // setCompanyID (id) {
-    //     if (isLocalStorageSupported()){
-    //         $localStorage.companyId = id;
-    //     }
-    //     else {
-    //         $cookies.put('companyId', id);
-    //     }
-    //     return ;
-    // }
+    setCompanyID (id: number): void {
+        this.localStorage.store('companyId', id);
+        return ;
+    }
 
-    // getCompanyID () {
-    //     if (isLocalStorageSupported()){
-    //         return $localStorage.companyId;
-    //     }
-    //     else {
-    //         return $cookies.get('companyId');
-    //     }
-    // }
+    getCompanyID (): number {
+        return this.localStorage.retrieve('companyId');
+    }
 
-    // setEmail (emailId) {
-    //     if (isLocalStorageSupported()){
-    //         $localStorage.email = emailId;
-    //     }
-    //     else {
-    //         $cookies.put('email', emailId);
-    //     }
-    //     return ;
-    // }
+    setEmail (emailId: any): void {
+        this.localStorage.store('email', emailId);
+        return ;
+    }
 
-    // getEmail () {
-    //     if (isLocalStorageSupported()){
-    //         return $localStorage.email;
-    //     }
-    //     else {
-    //         return $cookies.get('email');
-    //     }
-    // }
+    getEmail (): any {
+        return this.localStorage.retrieve('email');
+    }
 
-    // getDomainDetails() {
-    //    if (isLocalStorageSupported()){
-    //         return $localStorage.domainDetails;
-    //     }
-    //     else {
-    //         return $cookies.get('domainDetails');
-    //     }
-    // }
+    getDomainDetails(): any {
+        return this.localStorage.retrieve('domainDetails');
+    }
 
-    // setDomainDetails(domain) {
-    //     if (isLocalStorageSupported()){
-    //         $localStorage.domainDetails = domain;
-    //     }
-    //     else {
-    //         $cookies.put('domainDetails', domain);
-    //     }
-    //     return ;
-    // }
+    setDomainDetails(domain: any): void {
+        this.localStorage.store('domainDetails', domain);
+        return ;
+    }
 
-    // setPermissions(permission) {
-    //     if (isLocalStorageSupported()){
-    //         $localStorage.permissions = permission;
-    //     }
-    //     else {
-    //         $cookies.put('permissions', permission);
-    //     }
-    //     return ;
-    // }
+    setPermissions(permission: any): void {
+        this.localStorage.store('permissions', permission);
+        return ;
+    }
 
-    // getPermissions() {
-    //     if (isLocalStorageSupported()){
-    //         return $localStorage.permissions;
-    //     }
-    //     else {
-    //         return $cookies.get('permissions');
-    //     }
-    // },
+    getPermissions(): any {
+        return this.localStorage.retrieve('permissions');
+    }
 
-    // isAuthenticated() {
-    //     if (isLocalStorageSupported()){
-    //         return ($localStorage.token ? true : false);
-    //     }
-    //     else {
-    //         return ($cookies.get('token') ? true : false);
-    //     }
-    // }
+    isAuthenticated(): boolean {
+        return this.getToken() ? true: false;
+    }
 
-    // setCompanyName(name) {
-    //     if (isLocalStorageSupported()){
-    //         $localStorage.companyName = name;
-    //     }
-    //     else {
-    //         $cookies.put('companyName', name);
-    //     }
-    //     return ;
-    // }
+    setCompanyName(name: string): void {
+        this.localStorage.store('companyName', name);
+        return ;
+    }
 
-    // getCompanyName () {
-    //     if (isLocalStorageSupported()){
-    //         return $localStorage.companyName;
-    //     }
-    //     else {
-    //         return $cookies.get('companyName');
-    //     }
-    // }
+    getCompanyName (): string {
+        return this.localStorage.retrieve('companyName');
+    }
 
-    // setAdmin(value) {
-    //     if (isLocalStorageSupported()){
-    //         $localStorage.isAdmin = value;
-    //     }
-    //     else {
-    //         $cookies.put('isAdmin', value);
-    //     }
-    //     return ;
-    // }
+    setAdmin(value: boolean): void {
+        this.localStorage.store('isAdmin', value);
+        return ;
+    }
 
-    // isAdmin() {
-    //     if (isLocalStorageSupported()){
-    //         return $localStorage.isAdmin;
-    //     }
-    //     else {
-    //         return $cookies.get('isAdmin');
-    //     }
-    // }
+    isAdmin(): boolean {
+        return this.localStorage.retrieve('isAdmin');
+    }
 
-    // isClient() {
-    //     return (this.getUserID() && this.getCompanyID() ? true : false);
-    // },
+    isClient(): boolean {
+        return (this.getUserID() && this.getCompanyID() ? true : false);
+    }
 
-    // getStatus() {
-    //     if (isLocalStorageSupported()){
-    //         return $localStorage.status;
-    //     }
-    //     else {
-    //         return $cookies.get('status');
-    //     }
-    // }
+    getStatus(): any {
+        return this.localStorage.retrieve('status');
+    }
 
-    // setStatus(status) {
-    //     if (isLocalStorageSupported()){
-    //         $localStorage.status = status;
-    //     }
-    //     else {
-    //         $cookies.put('status', name);
-    //     }
-    //     return ;
-    // }
+    setStatus(status): void {
+        this.localStorage.store('status', status);
+        return ;
+    }
 
-    // deleteServiceWorker () {
-    //     try{
-    //         navigator.serviceWorker.getRegistration().then(function(r) { 
-    //           r.unregister();
-    //         }); 
-    //     }
-    //     catch(err){
-    //         console.log("deleteServiceWorker failed", err);
-    //     }
-    // }
+    deleteServiceWorker () {
+        try{
+            navigator.serviceWorker.getRegistration().then(function(r) { 
+              r.unregister();
+            }); 
+        }
+        catch(err){
+            console.log("deleteServiceWorker failed", err);
+        }
+    }
 
     // deleteUser() {
     //     this.setUserID(null);
@@ -246,61 +150,31 @@ export class AuthFactoryService {
     //     return true;
     // },
 
-    // setCID (id) {
-    //     if (isLocalStorageSupported()){
-    //         $localStorage.cid = id;
-    //     }
-    //     else {
-    //         $cookies.put('cid', id);
-    //     }
-    //     return ;
-    // },
+    setCID (id: number): void {
+        this.localStorage.store('cid', id);
+        return ;
+    }
 
-    // getCID() {
-    //     if (isLocalStorageSupported()){
-    //         return $localStorage.cid;
-    //     }
-    //     else {
-    //         return $cookies.get('cid');
-    //     }
-    // }
+    getCID(): number {
+        return this.localStorage.retrieve('cid');
+    }
 
-    // setCIP(id) {
-    //     if (isLocalStorageSupported()){
-    //         $localStorage.chat_token = id;
-    //     }
-    //     else {
-    //         $cookies.put('chat_token', id);
-    //     }
-    //     return ;
-    // }
+    setCIP(id: string): void {
+        this.localStorage.store('chat_token', id);
+        return ;
+    }
 
-    // getCIP() {
-    //     if (isLocalStorageSupported()){
-    //         return $localStorage.chat_token;
-    //     }
-    //     else {
-    //         return $cookies.get('chat_token');
-    //     }
-    // }
+    getCIP(): string {
+        return this.localStorage.retrieve('chat_token');
+    }
 
-    // setProfilePic(pic) {
-    //     if (isLocalStorageSupported()){
-    //         $localStorage.profilePic = pic;
-    //     }
-    //     else {
-    //         $cookies.put('profilePic', pic);
-    //     }
-    //     return ;
-    // }
+    setProfilePic(pic: any): void {
+        this.localStorage.store('profilePic', pic);
+        return ;
+    }
 
-    // getProfilePic() {
-    //     if (isLocalStorageSupported()){
-    //         return $localStorage.profilePic;
-    //     }
-    //     else {
-    //         return $cookies.get('profilePic');
-    //     }
-    // }
+    getProfilePic(): any {
+        return this.localStorage.retrieve('profilePic');
+    }
   
 }
