@@ -8,6 +8,9 @@ import { InterceptedHttp } from "./service/interceptor.service";
 
 import { routes } from './app.router';
 
+import { ProjectsModule } from './module/projects/projects.module';
+
+
 import { AuthFactoryService } from './service/auth-factory.service';
 
 import { AppComponent } from './app.component';
@@ -21,6 +24,7 @@ import { LoginComponent } from './component/login/login.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ProjectsModule,
     HttpModule,
     Ng2Webstorage,
     routes
