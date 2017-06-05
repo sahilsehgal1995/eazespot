@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthFactoryService } from '../../service/auth-factory.service';
 import { User } from "../../interface/user";
@@ -11,7 +12,7 @@ import { User } from "../../interface/user";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authFactory: AuthFactoryService) {
+  constructor(private authFactory: AuthFactoryService, private router: Router) {
 
   }
 
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
   	this.authFactory.login(this.email, this.password, this.grant_type, this.company)
   		.subscribe((res: User) => {
   			console.log("login user", res);
+        this.router.navigate(['/projects']);
   		}, (err: any) => {
   			console.log("login error", err);
         if (err.status === 428){
