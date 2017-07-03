@@ -15,11 +15,13 @@ import { AuthFactoryService } from './service/auth-factory.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
